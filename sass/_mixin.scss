@@ -1,0 +1,44 @@
+@mixin opacity($opacity) {
+opacity: $opacity;
+$opacity-ie: $opacity * 100;
+filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+@mixin flex ($direction: row, $justify-content: flex-start, $align-items: flex-start,$flex-wrap: nowrap) {
+display: flex;
+flex-direction: $direction;
+justify-content: $justify-content;
+align-items: $align-items;
+flex-wrap: $flex-wrap;
+}
+/*使用方式:
+.box {
+@include flex(row,flex-start,flex-start,wrap)
+}*/
+
+@mixin hide-text{
+	text-indent: 101%;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+@mixin flex-row-center{
+	display: flex;
+	justify-content: center;
+}
+
+@mixin container-space($bg-color){
+	background: $bg-color;
+	padding: 50px;
+	@media(max-width:767px){
+		padding: 50px 10px;
+	}
+}
+
+@mixin title($font-color,$side){
+	line-height: 1.5; 
+	color: $font-color;
+	text-align: $side;
+	margin-bottom: 30px;
+	font-size: $font-l;
+}
